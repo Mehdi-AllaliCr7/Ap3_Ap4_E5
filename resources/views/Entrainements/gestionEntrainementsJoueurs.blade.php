@@ -43,7 +43,7 @@
                                 {{$e->heureCalendrier}} 
                                 </td>
                                 <td>
-                                {{$e->idCategorie}}
+                                {{$e->nomCategorie}}
                                 </td>
                                 <td>      
                                 </td>

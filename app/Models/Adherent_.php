@@ -12,7 +12,7 @@ class Adherent_ extends Authenticatable
     protected $table = "Adherent_";
     protected $primaryKey = "idAdherent";
     public $timestamps = false;
-    protected $fillable = ['nomAdherent', 'prenomAdherent', 'Age', 'email', 'identifiant', 'mot_de_passe'];
+    protected $fillable = ['nomAdherent', 'prenomAdherent', 'Age', 'email', 'identifiant', 'mot_de_passe','type'];
 
     public function entraineur(){
         return $this->hasOne('App\Models\Entraineur', 'idAdherent');
@@ -36,6 +36,11 @@ class Adherent_ extends Authenticatable
     
 public function getAuthPassword(){
     return $this->mot_de_passe;
+}
+
+public function getType()
+{
+    return $this->attributes['type'];
 }
 
 }

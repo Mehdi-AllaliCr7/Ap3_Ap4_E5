@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\CalendrierEntrainement;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class EntrainementJoueurController extends Controller
 {
@@ -16,11 +18,14 @@ class EntrainementJoueurController extends Controller
      */
     public function index()
     {
-        $joueur = Auth::user();
+        $joueur = Auth::user();        
         //dd($joueur->idAdherent);
-        dd(CalendrierEntrainement::find(2));
-        $Les_EntrainementsJoueurs = $joueur->CalendrierEntrainement;
-        $calJoueur = CalendrierEntrainement::join();
+        $Les_EntrainementsJoueurs = DB::table('EntrainementsJoueurs')
+                           ->join('CalendrierEntrainement', 'EntrainementsJoueurs.idCalendrier', '=', 'CalendrierEntrainement.idCalendrier')
+                           ->join('Categorie', 'CalendrierEntrainement.idCategorie', '=', 'Categorie.idCategorie')
+                           ->where('EntrainementsJoueurs.idAdherent', '=', Auth::id())
+                            ->get();
+                              //dd($Les_EntrainementsJoueurs);
         return view("Entrainements.gestionEntrainementsJoueurs", ['Les_EntrainementsJoueurs'=>$Les_EntrainementsJoueurs]);
     }
 
