@@ -17,7 +17,6 @@ class entrainementControl extends Controller
     {
         $Les_Entrainements = CalendrierEntrainement::all();
         //dd($Les_Entrainements);
-
         return view("Entrainements.gestionEntrainements", ['Les_Entrainements'=>$Les_Entrainements]);
     }
 

@@ -17,8 +17,11 @@ class EntrainementJoueurController extends Controller
     public function index()
     {
         $joueur = Auth::user();
-        $Les_EntrainementsJoueurs = $joueur->CalendrierEntrainement ;
-        return view("Entrainements.gestionEntrainementsJoueurs", ['Les_Entrainements'=>$Les_EntrainementsJoueurs]);
+        //dd($joueur->idAdherent);
+        dd(CalendrierEntrainement::find(2));
+        $Les_EntrainementsJoueurs = $joueur->CalendrierEntrainement;
+        $calJoueur = CalendrierEntrainement::join();
+        return view("Entrainements.gestionEntrainementsJoueurs", ['Les_EntrainementsJoueurs'=>$Les_EntrainementsJoueurs]);
     }
 
     /**
@@ -52,7 +55,7 @@ class EntrainementJoueurController extends Controller
     {
         $Un_EntrainementJoueur = CalendrierEntrainement::find($id);
         $Categorie = $Un_EntrainementJoueur ->Categorie ?? 'none';
-        return view('Entrainements.detailEntrainementJoueur', ['Un_EntrainementJoueur'=>$Un_EntrainementJoueur]);
+        return view('Entrainements.gestionEntrainementsJoueurs', ['Un_EntrainementJoueur'=>$Un_EntrainementJoueur]);
     }
 
     /**

@@ -18,14 +18,15 @@
                             <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Seance</th>
+                                        <th>Séance</th>
                                         <th>Date</th>
                                         <th>Heure</th>
-                                        <th>categorie</th>
-                                        <th>action</th>
+                                        <th>Categorie</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                   
                         @foreach ($Les_Entrainements as $e)
                             <tr>
                                 <td>
@@ -42,10 +43,10 @@
                                 {{$e->heureCalendrier}} 
                                 </td>
                                 <td>
-                                {{$e->categorie->nomCategorie}}
+                                {{$e->idCategorie}}
                                 </td>
                                 <td>
-                                <a href="{{route('entrainements.show',$e->idCalendrier)}}" class="btn btn-outline-dark"> detail </a>
+                                <a href="{{route('entrainements.show',$e->idCalendrier)}}" class="btn btn-outline-dark"> Detail </a>
                                 <a class="btn btn-primary" href="{{ route('entrainements.edit',$e->idCalendrier) }}">Modifier</a>
                                 <form style="display:inline" action="{{route('entrainements.destroy', $e->idCalendrier)}}" method="POST">
                         @csrf

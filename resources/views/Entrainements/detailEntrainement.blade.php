@@ -7,8 +7,6 @@
     <li>{{$Un_Entrainement->dateCalendrier}}</li>
     <li>{{$Un_Entrainement->heureCalendrier}}</li>
     
-
-    
     
 </ul>
 
