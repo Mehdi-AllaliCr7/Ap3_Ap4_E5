@@ -5,6 +5,7 @@
 <ul>
     <li>{{$Un_EntrainementJoueur->dateCalendrier}}</li>
     <li>{{$Un_EntrainementJoueur->heureCalendrier}}</li>
+    
 </ul>
 
 

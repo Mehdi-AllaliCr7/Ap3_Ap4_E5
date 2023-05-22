@@ -1,15 +1,19 @@
+
 @extends('template')
 
 @section('content')
-
-<h1>{{$Un_Entrainement->seance}} </h1>
-<ul>
-    <li>{{$Un_Entrainement->dateCalendrier}}</li>
-    <li>{{$Un_Entrainement->heureCalendrier}}</li>
-</ul>
-
-<div class="table-responsive">
-                            <table class="table text-white">
+<div class="container">
+    <div class="row" style="margin:20px;">
+        <div class="col-12 ">
+            <div class="card">
+                <div class="card-header text-dark">
+                    <h2>Liste des Joueurs</h2>
+                </div>
+                <br>
+               
+                <br>
+                <div class="table-responsive">
+                            <table class="table text-dark">
                             <thead>
                                     <tr>
                                         <th>#</th>
@@ -20,7 +24,7 @@
                                         <th>Numero</th>
                                         <th>poste</th>
                                         <th>Categorie</th>
-                                       
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +55,10 @@
                                 </td>
                                 <td>
                                 {{$e->nomCategorie}}
-                                
+                                <td>
+                                <!-- <a href="{{route('Joueurs.show',$e->idAdherent)}}" class="btn btn-outline-dark"> Detail </a> -->
+                                <a class="btn btn-primary" href="{{ route('Joueurs.edit',$e->idAdherent) }}">Modifier</a>                              
+                                </td>
                             </tr>
                         @endforeach
 
@@ -61,6 +68,4 @@
 </div>
 
 </tbody>
-
-
 @endsection

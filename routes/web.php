@@ -17,11 +17,12 @@ Route::get('/', function () {
     return view('welcome');
     
 });
-//Route::middleware(['auth', 'adherent'])->group(function () {    
-    Route::resource('entrainements','App\Http\Controllers\EntrainementControl');
-//});
+Route::resource('entrainements','App\Http\Controllers\EntrainementControl');
+
 
 Route::resource('entrainementsJoueur','App\Http\Controllers\EntrainementJoueurController');
+
+Route::resource('Joueurs','App\Http\Controllers\JoueurController');
 
 Auth::routes();
 
